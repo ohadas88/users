@@ -23,9 +23,10 @@ usersBtn.on("click", async () => {
     );
     const numerOfParticipants =
       $(maleStatistic).length + $(femaleStatistic).length;
+    const percentagePerUser = 100 / numerOfParticipants;
     return {
-      male: $(maleStatistic).length * 2,
-      female: $(femaleStatistic).length * 2,
+      male: $(maleStatistic).length * percentagePerUser,
+      female: $(femaleStatistic).length * percentagePerUser,
     };
   }
 });
