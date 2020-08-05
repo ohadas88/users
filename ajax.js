@@ -1,7 +1,13 @@
 function getUsers(params) {
-  const { url, method = "GET" } = params;
-  return $.ajax({
-    url,
-    method,
-  });
+  try{
+      const { url, method = "GET" } = params;
+    return $.ajax({
+      url:url,
+      method,
+    });
+  }
+  catch(error){
+      console.log(error.message)
+      
+  }
 }
