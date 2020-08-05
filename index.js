@@ -40,15 +40,14 @@ usersBtn.on("click", async () => {
     }, {});
 
     const countryKeyVal = Object.entries(countries);
-constcountryResult= countryKeyVal.forEach(countryArray => {
-    
-});
+    constcountryResult = countryKeyVal.forEach((countryArray) => {});
 
     return countryKeyVal;
   }
 
   function _draw(genderPercentages, countriesObj) {
-    const genderTable = $(`<table>
+    //Gender Table Draw
+    const genderTable = $(`<h1>Gender Table</h1><table>
     <tr>
     <th>Male</th>
     <th>Female</th>
@@ -58,10 +57,30 @@ constcountryResult= countryKeyVal.forEach(countryArray => {
     <td>${genderPercentages.female}%</td>
     </tr>
     
-  </table>
+  </table><br><br><br>
   `);
-    console.log(countriesObj);
 
+    //Table Draw
+    const h1 = $(`<h1>Countries Table</h1>`);
+    const table = $(`<table></table>`);
+    const tableHeaders = $(`<thead><tr>
+<th>Country Name</th>
+<th>Number Of Users</th>
+</tr></thead>`);
+    const tableBody = $(`<tbody></tbody>`);
+    const countriesResult = countriesObj.forEach((countryObject) => {
+      const countryTableRow = $(`<tr>
+      <td>${countryObject[0]}</td>
+      <td>${countryObject[1]}</td>
+      </tr>`);
+      tableBody.append(countryTableRow);
+    });
+
+    //countries append
+    table.append(tableHeaders, tableBody);
+    countriesContainer.append(h1, table);
+
+    //gender append
     genderContainer.append(genderTable);
   }
 });
